@@ -5,12 +5,16 @@ const ccValidation = require("./routes/cc-validation")
 // Initialize express server
 const app = express()
 
-// Config
+// Config port
 const PORT = process.env.PORT || 3000
 
-// Middlewares
+
+// Json parser
 app.use( express.json() )
+
+// Endpoint
 app.use("/api/validate-credit-card", ccValidation)
+
 
 app.listen(PORT, () => {
     console.log("Server running on port", PORT);
