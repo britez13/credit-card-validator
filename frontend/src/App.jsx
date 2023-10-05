@@ -57,7 +57,8 @@ function App() {
       console.log(data);
     } catch (error) {
       alert(error.message);
-      console.log(error);
+
+      console.error(error);
     }
   };
 
