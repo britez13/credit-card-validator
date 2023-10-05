@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import axios from "axios"
 
 function App() {
   const [formData, setFormData] = useState({
@@ -38,25 +39,21 @@ function App() {
     try {      
       const expirationDate = new Date(parseInt(formData.year), parseInt(formData.month), 1);
 
-      const response = await fetch(
-        "http://localhost:3000/api/validate-credit-card",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            cardNumber: formData.cardNumber,
-            date: expirationDate.toISOString(),
-            cvv: formData.cvv,
-          }),
-        }
-      );
+      const resp = await axios.post("http://localhost:3000/api/validate-credit-card", {
+        cardNumber: formData.cardNumber,
+        cvv: formData.cvv,
+        date: expirationDate.toISOString()
+      }, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
 
-      const data = await response.json();
-      console.log(data);
+      alert("✅ " + resp.data);
     } catch (error) {
-      alert(error.message);
+      if(error.response.status === 400) {
+        alert( "❌ " + error.response.data);
+      }
 
       console.error(error);
     }

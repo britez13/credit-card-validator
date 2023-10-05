@@ -24,7 +24,6 @@ app.use( express.json() )
 // Endpoint
 app.use("/api/validate-credit-card", ccValidation)
 
-
 // Listen to port
 app.listen(PORT, () => {
     console.log("Server running on port", PORT);

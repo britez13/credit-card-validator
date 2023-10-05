@@ -3,6 +3,6 @@ const validateCreditCard = require("../controllers/cc-validation")
 
 const router = express.Router()
 
-router.get("/", validateCreditCard)
+router.post("/", validateCreditCard)
 
 module.exports = router
