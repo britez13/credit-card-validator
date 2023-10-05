@@ -1,42 +1,107 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+  Helvetica, Arial, "Lucida Grande", sans-serif;;
+  font-size: 18px;
+  color: white;
+  text-transform: uppercase;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+form {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.wrapper {
+  position: relative;
+  width: 100px;
+  height: 250px;
 }
 
 .card {
-  padding: 2em;
+  border-radius: 5px;
+  width: 320px;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
+  position: relative;
 }
 
-.read-the-docs {
-  color: #888;
+.card1 {
+  z-index: 2;
+  bottom: 0;
+  left: -13rem;
+  background-color: rgb(74, 132, 207);
+  padding: 30px;
+  position: absolute;
 }
+
+.card h1 {
+  font-size: 22px;
+  margin-block: 8px;
+}
+
+.card1 select {
+  width: 50px;
+  padding: 5px;
+}
+
+.card2 {
+  z-index: 1;
+  position: absolute;
+  padding-top: 25px;
+  width: 350px;
+  padding-bottom: 70px;
+  bottom: 3.2rem;
+  left: -1rem;
+  background-color: rgb(60, 117, 190);
+}
+
+.card2 .stripe {
+  height: 60px;
+  background-color: rgb(17, 17, 17);
+}
+
+.card2 .box {
+  margin-top: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.card2 input {
+  display: inline-block;
+  width: 50px;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input input {
+  padding: 5px 8px;
+}
+
+.btn-box {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.btn-box button {
+  padding: 10px 15px;
+  color: white;
+  background-color: rgb(13, 70, 104);
+  border: none;
+  border-radius: 5px;
+}
+ 
+
+
