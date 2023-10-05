@@ -4,6 +4,13 @@ function validateCreditCard(req, res) {
   const { cardNumber, cvv, date } = req.body;
 
   try {
+
+    const numberRegex = /^[0-9]+$/
+    
+    if(numberRegex.test(cardNumber)== false || numberRegex.test(cvv) == false ) {
+      throw new Error("Invalid card number or CVV format.");
+    }
+
     validateDate(date);
     validateCVV(cvv, cardNumber);
     validateCardNumber(cardNumber);
