@@ -13,8 +13,6 @@ function App() {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    console.log(name, value);
-
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -23,8 +21,6 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    console.log(formData);
 
     if (
       formData.cardNumber === "" ||

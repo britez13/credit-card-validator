@@ -26,22 +26,22 @@ function validateDate(date) {
 
 function validateCVV(cvv, cardNumber) {
   if (! (cvv.length === 3 || cvv.length === 4)) {
-    throw new Error("Incorrect CVV.");
+    throw new Error("Invalid CVV.");
   }
 
   if( cvv.length === 3 && (cardNumber.startsWith("34") || cardNumber.startsWith("37"))){ 
-    throw new Error("Incorrect CVV for American Express.");
+    throw new Error("Invalid CVV for American Express.");
   }
 
   if(( !(cardNumber.startsWith("34") || cardNumber.startsWith("37"))) && cvv.length === 4) {
-    throw new Error("Card number isn't valid for American Express.");
+    throw new Error("Invalid card number for American Express.");
   }
 
 }
 
 function validateCardNumber(cardNumber) {
   if (!(cardNumber.length >= 16 && cardNumber.length <= 19)) {
-    throw new Error("Incorrect card number.");
+    throw new Error("Invalid card number.");
   }
 
   // Test CC against Luhn's algorithm
@@ -49,17 +49,19 @@ function validateCardNumber(cardNumber) {
   let isSecond = true
   for(let i = cardNumber.length - 2; i >= 0; i--) {
     if(isSecond) {
-        let doubledNumber = cardNumber[i] * 2;
+        let doubledNumber = parseInt(cardNumber[i]) * 2;
         sum += doubledNumber > 9 ? doubledNumber - 9 : doubledNumber 
     }
     else {
-        sum += cardNumber[i]
+        sum += parseInt(cardNumber[i])
     }
     isSecond = !isSecond
   }
 
-  if(!(10 - (sum % 10)) === cardNumber[cardNumber.length - 1] ) {
-    throw new Error("Incorrect card number.");
+  const calculatedCheckDigit = 10 - (sum % 10)
+
+  if(! (calculatedCheckDigit === parseInt(cardNumber[cardNumber.length - 1])) ) {
+    throw new Error("Invalid card number.");
   }
 
 }
