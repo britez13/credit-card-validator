@@ -48,6 +48,10 @@ form {
   padding: 5px;
 }
 
+.card1 select#select2 {
+  width: 70px;
+}
+
 .card2 {
   z-index: 1;
   position: absolute;
